@@ -1,0 +1,35 @@
+
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>WebIOPi | Light Control</title>
+        <script type="text/javascript" src="/webiopi.js"></script>
+        <script type="text/javascript">
+        webiopi().ready(function() {
+                // Create a "Light" labeled button for GPIO 23
+                var lightButton = webiopi().createButton("lightButton", "Light On", function(){
+                    webiopi().callMacro("lightOn");
+                });
+
+                // Append button to HTML element with ID="controls" using jQuery
+                $("#controls").append(lightButton);
+        });
+
+        </script>
+        <style type="text/css">
+                button {
+                        display: block;
+                        margin: 5px 5px 5px 5px;
+                        width: 160px;
+                        height: 45px;
+                        font-size: 24pt;
+                        font-weight: bold;
+                        color: white;
+                        background-color: Yellow;
+                }
+        </style>
+</head>
+<body>
+        <div id="controls" align="center"></div>
+</body>
+</html>

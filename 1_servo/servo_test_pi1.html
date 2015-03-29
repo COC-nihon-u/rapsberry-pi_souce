@@ -1,0 +1,41 @@
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>WebIOPi | Web_cam_servo</title>
+        <script type="text/javascript" src="/webiopi.js"></script>
+        <script type="text/javascript">
+        webiopi().ready(function() {
+                var left_button = webiopi().createButton("left_button", "Left", function(){
+                    webiopi().callMacro("left");
+                });
+
+                $("#controls1").append(left_button);
+
+                 var right_button = webiopi().createButton("right_button", "Right", function(){
+                    webiopi().callMacro("right");
+                });
+
+                 $("#controls2").append(right_button);
+        });
+
+        </script>
+        <style type="text/css">
+                button {
+                        display: block;
+                        margin: 5px 5px 5px 5px;
+                        width: 160px;
+                        height: 45px;
+                        font-size: 24pt;
+                        font-weight: bold;
+                        color: white;
+                        background-color: Yellow;
+                }
+        </style>
+</head>
+<body>
+        <img alt="" src="http://192.168.0.6:8080/?action=stream" width="640" height="480" />
+        <p>hellow</p>
+        <div id="controls1" align="center"></div>
+        <div id="controls2" align="center"></div>
+</body>
+</html>
