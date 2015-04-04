@@ -5,17 +5,20 @@ webiopi.setDebug()
 
 GPIO = webiopi.GPIO
 SERVO_X = 23
+LED = 24
 DEFAULT_X = 0
 CURRENT_X = DEFAULT_X
 time_stamp = time.time()
 
 def setup():
     GPIO.setFunction(SERVO_X, GPIO.PWM)
+    GPIO.output(LED,GPIO.OUT)
     GPIO.pwmWriteAngle(SERVO_X, DEFAULT_X)
     webiopi.sleep(0.5)
     GPIO.pulseRatio(SERVO_X, 0)
 
 def loop():
+   GPIO.digitalWrite(LED,True)
    global time_stamp
    if (time_stamp <= time.time() - 20):
        defaultPosition()
