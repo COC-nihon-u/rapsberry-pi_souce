@@ -1,17 +1,15 @@
-
 import webiopi
 import time
 
 GPIO = webiopi.GPIO
 SERVO_X = 23
-DEFAULT_X = -10
+DEFAULT_X = 0
 CURRENT_X = DEFAULT_X
-
 time_stamp = time.time()
 
 def setup():
     GPIO.setFunction(SERVO_X, GPIO.PWM)
-    GPIO.pulseAngle(SERVO_X, DEFA/Users/Kakuta/Desktop/github_souce/raspberry pi_souce/1_servo/servo_test_pi1.htmlULT_X)
+    GPIO.pulseAngle(SERVO_X, DEFAULT_X)
     webiopi.sleep(0.5)
     GPIO.pulseRatio(SERVO_X, 0)
 
@@ -19,8 +17,7 @@ def loop():
    global time_stamp
    if (time_stamp <= time.time() - 20):
        defaultPosition()
-
-   webiopi.sleep(0.5)
+    webiopi.sleep(0.5)
 
 @webiopi.macro
 def defaultPosition():
@@ -35,6 +32,7 @@ def defaultPosition():
         GPIO.pulseRatio(SERVO_X, 0)
         webiopi.sleep(0.5)
         time_stamp = time.time()
+
 @webiopi.macro
 def left():
     global CURRENT_X, time_stamp

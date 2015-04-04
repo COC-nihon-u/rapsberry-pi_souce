@@ -4,7 +4,7 @@ import time
 
 GPIO = webiopi.GPIO
 SERVO_X = 23
-DEFAULT_X = -10
+DEFAULT_X = 0
 CURRENT_X = DEFAULT_X
 
 time_stamp = time.time()
